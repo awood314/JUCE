@@ -2106,6 +2106,11 @@ private:
                                                                              *pluginEditor,
                                                                              owner.owner->getComponentHandler(),
                                                                              &owner);
+                    
+                    if (auto* extensions = owner.owner->audioProcessor->get()->getVST3ClientExtensions())
+                    {
+                        extensions->setIComponentHandler (owner.owner->getComponentHandler());
+                    }
 
                     pluginEditor->setHostContext (editorHostContext.get());
                    #if ! JUCE_MAC
