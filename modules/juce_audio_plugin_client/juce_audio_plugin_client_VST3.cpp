@@ -4208,7 +4208,11 @@ private:
 
         static const PClassInfo2 componentClass { JuceVST3Component::iid,
                                                   PClassInfo::kManyInstances,
+#ifdef SPLICE_STUDIO_ONE_INTEGRATION_ENABLED
+                                                  "Media Content Provider",
+#else
                                                   kVstAudioEffectClass,
+#endif
                                                   JucePlugin_Name,
                                                   JucePlugin_Vst3ComponentFlags,
                                                   JucePlugin_Vst3Category,
