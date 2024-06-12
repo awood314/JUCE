@@ -894,8 +894,10 @@ AudioProcessorEditor* AudioProcessor::createEditorIfNeeded()
 
     if (ed != nullptr)
     {
+#ifndef JUCE_VST3_MEDIA_CONTENT_PROVIDER
         // you must give your editor comp a size before returning it..
         jassert (ed->getWidth() > 0 && ed->getHeight() > 0);
+#endif
         activeEditor = ed;
     }
 
