@@ -2193,6 +2193,10 @@ private:
 
             void resizeHostWindow()
             {
+#ifdef JUCE_VST3_MEDIA_CONTENT_PROVIDER
+                // Don't dictate the host window size for media content providers
+                return;
+#endif
                 if (pluginEditor != nullptr)
                 {
                     if (owner.plugFrame != nullptr)
