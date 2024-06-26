@@ -783,6 +783,13 @@ public:
         if (auto* pluginInstance = getPluginInstance())
             pluginInstance->removeListener (this);
 
+        if (audioProcessor)
+        {
+            if (auto* extensions = audioProcessor->get()->getVST3ClientExtensions())
+            {
+                extensions->setIHostApplication(nullptr);
+            }
+        }
         audioProcessor = nullptr;
 
         return EditController::terminate();
